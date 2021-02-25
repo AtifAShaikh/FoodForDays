@@ -8,22 +8,23 @@
     </head>
     <body>
         <div class="d-flex flex-column align-items-center">
-            <input type="text" class="form-control mt-4 col-6 text-center" placeholder="Enter a Food">
-            <button type="button" class="btn btn-primary mt-3">Search</button>
+            <input type="text" class="form-control mt-4 col-6 text-center searchInput" placeholder="Enter a Food">
+            <button type="button" class="btn btn-primary mt-3" id="searchSubmitButton">Search</button>
         </div>
+
+        <div class="card col-6 mb-3" id="cardTemplate">
+            <div class="card-body">
+              <h1 class="cardTitle">Title</h1>
+              <h6 class="cardBrand">brand goes here</h6>
+              <h3 class="cardCalories">calories</h3>
+              <h4 class="cardCarbs">Carbs</h4>
+              <h4 class="cardFats">Fats</h4>
+              <h4 class="cardProteins">Proteins</h4>
+            </div>
+          </div>
         
         <div class="cardContainer d-flex flex-column align-items-center mt-4" id="cardContainer">
-            <div class="card col-6 " id="cardTemplate">
-                <div class="card-body">
-                  <h1 id="cardTitle">Title</h1>
-                  <img width="300px">
-                  <h3>calories</h3>
-                  <h4>Carbs</h4>
-                  <h4>Fats</h4>
-                  <h4>Proteins</h4>
-                  <p>recipe here</p>
-                </div>
-              </div>
+            
         </div>
 
 
