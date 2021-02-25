@@ -1,12 +1,30 @@
+var favoriteFoods = JSON.parse(localStorage.getItem('favoriteFoods'));
+if(favoriteFoods === null){
+    localStorage.setItem('favoriteFoods', '[]');
+    var favoriteFoods = JSON.parse(localStorage.getItem('favoriteFoods'));
+}
+
+
 function populateCards(foodsToDisplay){
     $('.cardContainer').empty();
     console.log(foodsToDisplay);
+
     
     foodsToDisplay.forEach(foodToDispaly => {
         var newCard = $('#cardTemplate').clone();
         newCard.removeAttr('id');
         newCard.find('.cardTitle').text(foodToDispaly.description);
-        newCard.find('.cardBrand').text(foodToDispaly.brandOwner);
+        if( foodToDispaly.brandOwner !== undefined){
+            newCard.find('.cardBrand').text(foodToDispaly.brandOwner);
+        } else {
+            newCard.find('.cardBrand').text('');
+        }
+        if(foodToDispaly.ingredients !== undefined){
+            newCard.find('.cardIngredients').text(foodToDispaly.ingredients);
+        } else {
+            newCard.find('.cardIngredients').text('');
+        }
+        
         for(var i = 0; i < foodToDispaly.foodNutrients.length; i++){
             if(foodToDispaly.foodNutrients[i].nutrientName === 'Energy'){
                 newCard.find('.cardCalories').text(foodToDispaly.foodNutrients[i].value + ' cal');
@@ -21,7 +39,7 @@ function populateCards(foodsToDisplay){
                 newCard.find('.cardProteins').text('Proteins: ' + foodToDispaly.foodNutrients[i].value + ' g');
             }
         }
-        
+        newCard.find('.addToFavoritesButton').on('click', addToFavorites)
         $('#cardContainer').append(newCard);
     });
 }
@@ -35,6 +53,29 @@ $('#searchSubmitButton').on('click', function(event){
         // console.log(data.foods);
         populateCards(data.foods);
     })
-    
 });
+
+// $('.addToFavoritesButton').on('click', function(event){
+//     event.preventDefault();
+//     console.log('got button');
+// });
+
+function addToFavorites(event){
+    var myButton = $(event.target);
+    var ObjectToAppend = {
+        name: myButton.siblings('.cardTitle').text(),
+        brand: myButton.siblings('.cardBrand').text(),
+        calories: myButton.siblings('.cardCalories').text().split(' ')[0],
+        carbs: myButton.siblings('.cardCarbs').text().split(' ')[1],
+        fats: myButton.siblings('.cardFats').text().split(' ')[1],
+        proteins: myButton.siblings('.cardProteins').text().split(' ')[1],
+        ingredients: myButton.siblings('.cardIngredients').text(),
+        recipe: ''
+    }
+    // console.log(myButton.siblings('.cardCalories').text().split(' ')[0]);
+    favoriteFoods.push(ObjectToAppend);
+    localStorage.setItem('favoriteFoods', JSON.stringify(favoriteFoods));
+    favoriteFoods = JSON.parse(localStorage.getItem('favoriteFoods'));
+    console.log(favoriteFoods);
+}
 
