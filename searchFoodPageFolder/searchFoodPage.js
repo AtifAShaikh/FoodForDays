@@ -70,12 +70,14 @@ function addToFavorites(event){
         fats: myButton.siblings('.cardFats').text().split(' ')[1],
         proteins: myButton.siblings('.cardProteins').text().split(' ')[1],
         ingredients: myButton.siblings('.cardIngredients').text(),
-        recipe: ''
+        recipe: '',
+        img: ''
     }
     // console.log(myButton.siblings('.cardCalories').text().split(' ')[0]);
     favoriteFoods.push(ObjectToAppend);
     localStorage.setItem('favoriteFoods', JSON.stringify(favoriteFoods));
     favoriteFoods = JSON.parse(localStorage.getItem('favoriteFoods'));
+    myButton.hide();
     console.log(favoriteFoods);
 }
 
