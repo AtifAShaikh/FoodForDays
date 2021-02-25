@@ -5,13 +5,14 @@ function populateCards(foodRecipies){
     foodRecipies.forEach(foodRecipies => {
         var newCard = $('#cardTemplate').clone();
         newCard.removeAttr('id');
-        newCard.find('macros').text(foodRecipies.digest);
-        newCard.find('calories').text(foodRecipies.calories);
+        newCard.find('cardTitle').text(foodRecipies.label);
+        newCard.find('img').text(foodRecipies.image);
         for(var i = 0; i < foodRecipies.ingredients.length; i++){
             
 
-    newCard.find('.cardRecipies').text(foodRecipies.ingredients[i].value + 'recipie')
+    newCard.find('.cardRecipies').text(foodRecipies.ingredients[i].value + 'recipie');
         }
+    
     })
 }
 
