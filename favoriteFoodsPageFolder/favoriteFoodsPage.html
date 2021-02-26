@@ -35,23 +35,26 @@
                 <a href="../searchFoodPageFolder/searchFoodPage.html" button type="button" class="btn btn-success">Food Items</button></a> 
             </div>    
             <div class="row">
-              <div class="col-3 cardHolder">
-                <div class="card" style="width: 18rem;" id="templateCard" listIndex='0'>
-                    <div class="card-body">
-                      <p class="card-text">
-                        <h5 class="nameText">Name:</h5>
-                        <h5 class="nameBrand">Brand:</h5>
-                      </p>
-                    </div>
+              <div class="card" style="width: 18rem;" id="templateCard" listIndex='0'>
+                <div class="card-body">
+                  <p class="card-text">
+                    <h5 class="nameText">Name:</h5>
+                    <h5 class="nameBrand">Brand:</h5>
+                  </p>
                 </div>
+            </div>
+              <div class="col-3 cardHolder">
+                
               </div>
-              <div class="col-9">
+              <div class="foodInfo col-9">
+                <h3>Name:<span id="foodName"></span></h3>
                 <h3>Calories:<span id="foodCalories"></span></h3>
                 <h3>Fats:<span id="foodFats"></span></h3>
                 <h3>Carbs:<span id="foodCarbs"></span></h3>
                 <h3>Proteins:<span id="foodProteins"></span></h3>
                 <h3>Recipe:<span id="foodRecipe"></span></h3>
                 <h3>Ingredients:<span id="foodIngredients"></span></h3>
+                <button type="button" class="btn btn-danger removeButton" currentIndex='0'>Remove Food</button>
               </div>
               
             </div>
