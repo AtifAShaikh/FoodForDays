@@ -9,11 +9,13 @@ if(foodPlans === null){
     foodPlans = JSON.parse(localStorage.getItem('foodPlans'));
 }
 
-
+var favFoodsIndex = 0;
 favFoods.forEach(element => {
     var newCard = $('#templateFoodCard').clone();
     newCard.removeAttr('id');
     newCard.find('p').text(element.name);
+    newCard.attr('myIndex', favFoodsIndex);
+    favFoodsIndex++;
     $('.foodCardContainer').append(newCard);
 });
 
@@ -60,6 +62,7 @@ function displayFoodPlan(foodPlanDataIndex){
     var foodPlanToDisplay = foodPlans[foodPlanDataIndex];
     $('.foodPlanNameText').text(foodPlanToDisplay.name);
     $('.removeFoodPlanButton').attr('currentPlanIndex', foodPlanDataIndex);
+    updateFoodTable(foodPlanToDisplay.foods);
 }
 
 $('.removeFoodPlanButton').on('click', function(){
@@ -70,5 +73,51 @@ $('.removeFoodPlanButton').on('click', function(){
     location.reload();
 
 });
+
+
+$('.card').on('click', function(){
+    var foodIndexToAdd = $(this).attr('myIndex');
+    var foodPlanToUpdate = foodPlans[$('.removeFoodPlanButton').attr('currentPlanIndex')];
+
+    if(foodPlanToUpdate === undefined){
+        return;
+    }
+
+    foodPlanToUpdate.foods.push(favFoods[foodIndexToAdd]);
+    console.log(foodPlanToUpdate);
+    localStorage.setItem('foodPlans', JSON.stringify(foodPlans));
+    foodPlans = JSON.parse(localStorage.getItem('foodPlans'));
+    updateFoodTable(foodPlanToUpdate.foods);
+});
+
+function updateFoodTable(foodsToPutOnTable){
+    $('.tableRow').remove();
+    var totalCarb = 0;
+    var totalFat = 0;
+    var totalProt = 0;
+    var totalCal = 0;
+    foodsToPutOnTable.forEach(element => {
+        var newRow = $('#templateTableElement').clone();
+        newRow.attr('class', 'tableRow');
+        newRow.removeAttr('id');
+        newRow.find('.foodItemName').text(element.name);
+        newRow.find('.foodItemCarbs').text(element.carbs);
+        totalCarb += Number(element.carbs);
+        newRow.find('.foodItemFats').text(element.fats);
+        totalFat += Number(element.fats);
+        newRow.find('.foodItemProteins').text(element.proteins);
+        totalProt += Number(element.proteins);
+        newRow.find('.foodItemCals').text(element.calories );
+        totalCal += Number(element.calories);
+        
+
+        $('.foodItems').prepend(newRow);
+
+    });
+    $('.totalValues').find('.foodItemCarbs').text(Math.round(totalCarb));
+    $('.totalValues').find('.foodItemFats').text(Math.round(totalFat));
+    $('.totalValues').find('.foodItemProteins').text(Math.round(totalProt));
+    $('.totalValues').find('.foodItemCals').text(Math.round(totalCal));
+}
 
 refreshFoodPlans();
