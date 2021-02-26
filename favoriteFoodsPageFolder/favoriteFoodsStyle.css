@@ -1,3 +1,7 @@
 #templateCard{
     display: none;
 }
+
+.card {
+    cursor: pointer;
+}
