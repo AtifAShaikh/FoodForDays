@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="favoriteFoodsStyle.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -34,38 +35,23 @@
                 <a href="../searchFoodPageFolder/searchFoodPage.html" button type="button" class="btn btn-success">Food Items</button></a> 
             </div>    
             <div class="row">
-              <div class="col-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="#" class="card-img-top" alt="...">
+              <div class="col-3 cardHolder">
+                <div class="card" style="width: 18rem;" id="templateCard" listIndex='0'>
                     <div class="card-body">
-                      
-                      
                       <p class="card-text">
-                        <h5>Name:</h5>
-                        <h5>Brand:</h5>
+                        <h5 class="nameText">Name:</h5>
+                        <h5 class="nameBrand">Brand:</h5>
                       </p>
                     </div>
-                  </div>
-                  <div class="card" style="width: 18rem;">
-                    <img src="#" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      
-                      
-                      <p class="card-text">
-                        <h5>Name:</h5>
-                        <h5>Brand:</h5>
-                      </p>
-                      
-                    </div>
-                  </div>
+                </div>
               </div>
               <div class="col-9">
-                <h3>Calories:</h3>
-                <h3>Fats:</h3>
-                <h3>Carbs:</h3>
-                <h3>Proteins</h3>
-                <h3>Recipe:</h3>
-                <h3>Ingredients:</h3>
+                <h3 id="foodCalories">Calories:</h3>
+                <h3 id="foodFat">Fats:</h3>
+                <h3 id="foodCarbs">Carbs:</h3>
+                <h3 id="foodProtein">Proteins</h3>
+                <h3 id="foodRecipe">Recipe:</h3>
+                <h3 id="foodIngredients">Ingredients:</h3>
               </div>
               
             </div>
@@ -75,5 +61,13 @@
 
           
     </header>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+  <script src="favoriteFoodsPage.js"></script>
 </body>
 </html>
