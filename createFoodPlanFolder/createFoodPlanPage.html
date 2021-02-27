@@ -13,7 +13,7 @@
 </head>
 <body>
     <header class="header">
-        <h1>Food For Days</h1>
+        <h1 class="ml-4 mt-3">Food For Days</h1>
         <ul class="nav justify-content-end">
             <li class="nav-item">
               <a class="nav-link" href="../index.html">Home</a>
@@ -33,19 +33,17 @@
           </ul>
     </header>
     
-    <div class="row">
-
-      <div class="col-3 foodCardContainer">
-        <div class="card bg-success">
-          <p class="mt-3 ml-3">Click Here to search for your favorite foods!</p>
-        </div>
-        <div class="card" id="templateFoodCard">
-          <p class="mt-3 ml-3">Food name goes here</p>
-        </div>
+    <div class="row d-flex justify-content-center mt-5">
+      <div class="card" id="templateFoodCard">
+        <p class="mt-3 ml-2 mr-2">Food name goes here</p>
+      </div>
+      <div class="col-2 foodCardContainer overflow-auto mt-3" style="height: 700px;">
+        <h2 class="">Favorite Foods</h2>
+        
       </div>
 
-      <div class="col-6 mealPlanInfo">
-        <h1 class="foodPlanNameText">No Food Plan Selected</h1>
+      <div class="col-7 mealPlanInfo mt-2">
+        <h1 class="foodPlanNameText">Select a Food Plan</h1>
         <table class="table foodItems">
           <thead>
             <tr>
@@ -83,9 +81,10 @@
       </div>
       
 
-      <div class="col-3">
+      <div class="col-2">
+        <h2 class="mt-3">Food Plans</h2>
         <div class="card bg-success createPlan">
-          <p class="mt-3 ml-3">Click Here to create a food Plan!</p>
+          <p class="mt-1 mb-1 text-center text-light" style="font-size: 30px;">+</p>
         </div>
         
         <div class="card" id="templateFoodPlanCard" myIndex='0'>
@@ -100,14 +99,14 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Modal title</h5>
+            <h5 class="modal-title">Create a Food Plan</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <div class="input-group mb-3">
-              <input type="text" placeholder="enter a name here" id="foodPlanNameInput">
+              <input type="text" placeholder="name your food plan" id="foodPlanNameInput">
             </div>
             
           </div>
