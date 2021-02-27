@@ -1,5 +1,23 @@
 var favFoods = JSON.parse(localStorage.getItem('favoriteFoods'));
 var foodPlans = JSON.parse(localStorage.getItem('foodPlans'));
+var ctx = document.getElementById('myChart').getContext('2d');
+
+var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Carbs', 'Fats', 'Proteins'],
+        datasets: [{
+            label: '# of Votes',
+            data: [1, 1, 1],
+            backgroundColor: [
+                'rgba(54, 162, 235)',
+                'rgba(255, 206, 86)',
+                'rgba(255, 99, 132)'
+            ]
+        }]
+    }
+});
+
 console.log(foodPlans);
 
 
@@ -118,6 +136,27 @@ function updateFoodTable(foodsToPutOnTable){
     $('.totalValues').find('.foodItemFats').text(Math.round(totalFat));
     $('.totalValues').find('.foodItemProteins').text(Math.round(totalProt));
     $('.totalValues').find('.foodItemCals').text(Math.round(totalCal));
+    myChart.destroy();
+
+    myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Carbs', 'Fats', 'Proteins'],
+            datasets: [{
+                label: '# of Votes',
+                data: [Math.round(totalCarb), Math.round(totalFat), Math.round(totalProt)],
+                backgroundColor: [
+                    'rgba(54, 162, 235)',
+                    'rgba(255, 206, 86)',
+                    'rgba(255, 99, 132)'
+                ]
+            }]
+        }
+    });
+    
 }
 
+
 refreshFoodPlans();
+
+
