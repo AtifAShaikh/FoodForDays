@@ -1,52 +1,37 @@
-function populateCards(foodRecipies){
-    $('.cardContainer').empty();
-    console.log(foodRecipies);
 
-    foodRecipies.forEach(foodRecipies => {
+
+function populateCards(recipes){
+    $('.cardContainer').empty();
+    recipes.forEach(element => {
         var newCard = $('#cardTemplate').clone();
         newCard.removeAttr('id');
-        newCard.find('cardTitle').text(foodRecipies.recipies);
-        if(foodRecipies.ingredients !== undefined){
-            newCard.find('.cardIngredients').text(foodRecipies.ingredients);
-        } else {
-            newCard.find('cardIngredients').text('');
-        }
-        if(foodRecipies.calories !== undefined){
-            newCard.find('cardCalories').text(foodRecipies.calories);
-        } else {
-            newCard.find('.cardCalories').text('');
-        }
-    
-        for(var i = 0; i < foodRecipies.ingredients.length; i++){
-            
+        newCard.find('.cardTitle').text(element.recipe.label)
+        var ingredientList = '';
+        element.recipe.ingredientLines.forEach(element => {
+            ingredientList += element + ', ';
+        });
+        newCard.find('.cardIngredients').text(ingredientList);
+        newCard.find('.cardCalories').text(Math.round(element.recipe.totalNutrients.ENERC_KCAL.quantity/element.recipe.yield) + ' cal');
+        newCard.find('.cardCarbs').text("Carbs: " + Math.round(element.recipe.totalNutrients.CHOCDF.quantity/element.recipe.yield) + ' g');
+        newCard.find('.cardFats').text("Fats: " + Math.round(element.recipe.totalNutrients.FAT.quantity/element.recipe.yield) + ' g');
+        newCard.find('.cardProteins').text("Proteins: " + Math.round(element.recipe.totalNutrients.PROCNT.quantity/element.recipe.yield) + ' g');
+        newCard.find('img').attr('src', element.recipe.image);
 
-    newCard.find('.cardRecipies').text(foodRecipies.ingredients[i].value + 'recipie');
-        }
+        $('.cardContainer').append(newCard);
+    });
     
-    })
 }
-
-// var newCard = $('#cardTemplate').clone();
-// console.log(newCard);
-// newCard.removeAttr('id');
-// newCard.find('#cardTitle').text("test");
-// $('#cardContainer').append(newCard);
 
 
 $('#searchBtn').on('click', function(event){ 
     event.preventDefault();
-    fetch("https://api.edamam.com/search?&app_id=44f2b9d4&app_key=ac4ec459f3abc1bda1d6460e24ee8c18" + $('.searchInput').val())
+    var searchQ = $('.recipeInput').val()
+    fetch("https://api.edamam.com/search?q="+ searchQ +"&app_id=44f2b9d4&app_key=ac4ec459f3abc1bda1d6460e24ee8c18")
     .then(function(response){
         return response.json();
-}).then(function(data){
-    console.log(data.search);
-    populateCards(data.search);
-})
+    }).then(function(data){
+        console.log(data.hits);
+        populateCards(data.hits);
+    })
 });
-// fetch("https://api.edamam.com/search?q=chicken&app_id=44f2b9d4&app_key=ac4ec459f3abc1bda1d6460e24ee8c18")
-//     .then(function(response){
-//     return response.json();
-// }).then(function(data){
-//     console.log(data.hits);
-// })
 
