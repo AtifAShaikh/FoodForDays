@@ -36,30 +36,23 @@
       </ul>
     </div>
   </nav>
-
-          <div class="container mt-5">
             <!-- <div class="button"> 
                 <a href="../searchRecipePageFolder/searchRecipePage.html" button type="button" class="btn btn-success">Recipes</button></a>
                 <a href="../searchFoodPageFolder/searchFoodPage.html" button type="button" class="btn btn-success">Food Items</button></a> 
             </div>     -->
             <div class="card" style="width: 18rem;" id="templateCard" listIndex='0'>
-              <div class="card-body">
+              <div class="card-body col-10">
                   <h5 class="nameText">Name:</h5>
                   <h7 class="nameBrand">Brand:</h7>
               </div>
             </div>
 
-            <div class="row d-flex justify-content-center">
-              <div class="col-3 cardHolder  overflow-auto" style="height: 700px;">
+            <div class="row d-flex justify-content-center mt-5">
+              <div class="col-2 cardHolder  overflow-auto" style="height: 700px;">
                 <h2 class="">Favorite Foods</h2>
               </div>
 
-              <div class="col-4 d-flex flex-column align-items-end">
-                <canvas id="myChart" width="200"></canvas>
-                <button type="button" class="btn btn-danger removeButton mt-5" currentIndex='0'>Remove Food</button>
-              </div>
-
-              <div class="foodInfo col-4">
+              <div class="foodInfo col-2">
                 <h1><span id="foodName"></span></h3>
                 <h2>Calories: <span id="foodCalories"></span></h2>
                 <h3>Fats: <span id="foodFats"></span> (g)</h3>
@@ -67,13 +60,15 @@
                 <h3>Proteins: <span id="foodProteins"></span> (g)</h3>
                 <h5>Ingredients: <span id="foodIngredients"></span></h5>
                 <h5>Recipe: <span id="foodRecipe"></span></h5>
-                
               </div>
-               
-              
+
+              <div class="col-3 d-flex flex-column align-items-start">
+                <canvas id="myChart"></canvas>
+                <button type="button" class="btn btn-danger removeButton mt-5" currentIndex='0'>Remove Food</button>
+              </div>
 
             </div>
-          </div>
+
 
           
 
