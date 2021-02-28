@@ -5,3 +5,11 @@
 #templateTableElement{
     display: none;
 }
+
+.removeFoodItem{
+    display: none;
+}
+
+.removeFoodItem:hover{
+    cursor: pointer;
+}

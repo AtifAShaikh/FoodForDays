@@ -109,15 +109,23 @@ $('.card').on('click', function(){
 });
 
 function updateFoodTable(foodsToPutOnTable){
+    console.log(foodsToPutOnTable);
     $('.tableRow').remove();
     var totalCarb = 0;
     var totalFat = 0;
     var totalProt = 0;
     var totalCal = 0;
+    var currentFoodIndex = -1;
     foodsToPutOnTable.forEach(element => {
+        currentFoodIndex++;
+        if(element === null){
+            return;
+        }
         var newRow = $('#templateTableElement').clone();
         newRow.attr('class', 'tableRow');
         newRow.removeAttr('id');
+        newRow.find('.nameHolder').hover(showX, hideX);
+        newRow.find('.removeFoodItem').attr('myFoodIndex', currentFoodIndex);     
         newRow.find('.foodItemName').text(element.name);
         newRow.find('.foodItemCarbs').text(element.carbs);
         totalCarb += Number(element.carbs);
@@ -128,10 +136,10 @@ function updateFoodTable(foodsToPutOnTable){
         newRow.find('.foodItemCals').text(element.calories );
         totalCal += Number(element.calories);
         
-
         $('.foodItems').prepend(newRow);
 
     });
+
     $('.totalValues').find('.foodItemCarbs').text(Math.round(totalCarb));
     $('.totalValues').find('.foodItemFats').text(Math.round(totalFat));
     $('.totalValues').find('.foodItemProteins').text(Math.round(totalProt));
@@ -152,10 +160,25 @@ function updateFoodTable(foodsToPutOnTable){
                 ]
             }]
         }
-    });
-    
+    }); 
 }
 
+function showX(event){
+    $(event.target).find('.removeFoodItem').show();
+}
+
+function hideX(event){
+    $(event.target).find('.removeFoodItem').hide();
+}
+
+$('.foodItems').on('click', '.removeFoodItem', function(event){
+    var foodToRemove = $(event.target).attr('myFoodIndex');
+    var foodPlanToUpdate = foodPlans[$('.removeFoodPlanButton').attr('currentPlanIndex')];
+    foodPlanToUpdate.foods.splice(foodToRemove, 1);
+    localStorage.setItem('foodPlans', JSON.stringify(foodPlans));
+    foodPlans = JSON.parse(localStorage.getItem('foodPlans'));
+    updateFoodTable(foodPlanToUpdate.foods);
+})
 
 refreshFoodPlans();
 
