@@ -5,16 +5,17 @@ var favoriteFoods = JSON.parse(localStorage.getItem('favoriteFoods'));
 var ctx = document.getElementById('myChart').getContext('2d');
             
             var chart = new Chart(ctx, {
-                // The type of chart we want to create
+                
                 type: 'pie',
             
-                // The data for our dataset
+                
                 data: {
                     labels: ['Carbs', 'Fats', 'Proteins'],
                     datasets: [{
                         label: 'Nutrients',
                         backgroundColor: ['Yellow', 'Green', 'Orange'],
                         borderColor: 'Black',
+                        // placeholder values for now
                         data: [33, 33, 33],
                         
                     }]
@@ -22,6 +23,5 @@ var ctx = document.getElementById('myChart').getContext('2d');
                 },
                 
             
-                // Configuration options go here
-                options: {}
+                
             });
