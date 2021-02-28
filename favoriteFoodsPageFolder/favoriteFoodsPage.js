@@ -44,9 +44,13 @@ $('.foodInfo').on("click", ".btn", function(){
     
         $('.cardHolder').append(newCard);
     }
+
+    
+});
+   
     
 
-});
+
 
 
     
