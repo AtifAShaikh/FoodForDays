@@ -28,21 +28,24 @@
           </ul>
         </header>
         <div class="d-flex flex-column align-items-center">
-            <input type="text" class="form-control mt-4 col-6 text-center" placeholder="Search for a Recipie">
-            <button type="button" class="btn btn-primary mt-3" id="seachBtn">Search</button>
+            <input type="text" class="form-control mt-4 col-6 text-center recipeInput" placeholder="Search for a Recipie">
+            <button type="button" class="btn btn-primary mt-3" id="searchBtn">Search</button>
         </div>
         
         <div class="card col-6 " id="cardTemplate">
-                <div class="card-body">
+            <div class="card-body">
                   <h1 class="cardTitle">Title</h1>
+                  <img width="300">
                   <p class="cardIngredients">Ingredients</p>
-                  <h4 class="cardCalories">Calories</h4>
+                  <h3 class="cardCalories">Calories</h3>
                   <h4 class="cardCarbs">Carbs</h4>
                   <h4 class="cardFats">Fats</h4>
                   <h4 class="cardProteins">Proteins</h4>
-                </div>
-              </div>
-              <div class="cardContainer d-flex flex-column align-items-center mt-4" id="cardContainer"></div>
+                  <button type="button" class="btn btn-outline-success addToFavoritesButton">Add to Favorites</button>
+            </div>
+          </div>
+
+          <div class="cardContainer d-flex flex-column align-items-center mt-4" id="cardContainer"></div>
 
 
 
