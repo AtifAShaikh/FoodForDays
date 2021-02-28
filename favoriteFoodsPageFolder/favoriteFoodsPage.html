@@ -37,33 +37,39 @@
     </div>
   </nav>
 
-          <div class="container">
-            <div class="button"> 
+          <div class="container mt-5">
+            <!-- <div class="button"> 
                 <a href="../searchRecipePageFolder/searchRecipePage.html" button type="button" class="btn btn-success">Recipes</button></a>
                 <a href="../searchFoodPageFolder/searchFoodPage.html" button type="button" class="btn btn-success">Food Items</button></a> 
-            </div>    
-            <div class="row">
-              <div class="card" style="width: 18rem;" id="templateCard" listIndex='0'>
-                <div class="card-body">
-                  <p class="card-text">
-                    <h5 class="nameText">Name:</h5>
-                    <h5 class="nameBrand">Brand:</h5>
-                  </p>
-                </div>
-            </div>
-              <div class="col-3 cardHolder">
-                
+            </div>     -->
+            <div class="card" style="width: 18rem;" id="templateCard" listIndex='0'>
+              <div class="card-body">
+                  <h5 class="nameText  py-1">Name:</h5>
+                  <h7 class="nameBrand  my-1">Brand:</h7>
               </div>
-              <div class="foodInfo col-9">
-                <h3>Name:<span id="foodName"></span></h3>
+            </div>
+
+            <div class="row d-flex justify-content-center">
+              <div class="col-3 cardHolder  overflow-auto" style="height: 700px;"></div>
+
+              <div class="col-4 d-flex flex-column align-items-end">
+                <canvas id="myChart" width="200"></canvas>
+                <button type="button" class="btn btn-danger removeButton mt-5" currentIndex='0'>Remove Food</button>
+              </div>
+
+              <div class="foodInfo col-4">
+                <h1>Name:<span id="foodName"></span></h3>
                 <h3>Calories:<span id="foodCalories"></span></h3>
                 <h3>Fats:<span id="foodFats"></span></h3>
                 <h3>Carbs:<span id="foodCarbs"></span></h3>
                 <h3>Proteins:<span id="foodProteins"></span></h3>
-                <h3>Recipe:<span id="foodRecipe"></span></h3>
                 <h3>Ingredients:<span id="foodIngredients"></span></h3>
-                <button type="button" class="btn btn-danger removeButton" currentIndex='0'>Remove Food</button>
+                <h3>Recipe:<span id="foodRecipe"></span></h3>
+                
               </div>
+               
+              
+
             </div>
           </div>
 
@@ -73,11 +79,10 @@
    
 
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
   <script src="favoriteFoodsPage.js"></script>
 </body>
 </html>
