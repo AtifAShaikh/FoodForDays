@@ -8,26 +8,31 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     </head>
     <body>
-        <header class="header">
-          <h1 class="ml-4 mt-3">Food For Days</h1>
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                  <a class="nav-link" href="../index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../searchRecipePageFolder/searchRecipePage.html"> Search Food Recipes</a>
-                </li>
-                <li class ="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Search Food Products</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../favoriteFoodsPageFolder/favoriteFoodsPage.html">Your Favorite Foods</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../createFoodPlanFolder/createFoodPlanPage.html">Your Food Plans</a>
-                </li>
-              </ul>
-        </header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
+        <a class="navbar-brand" href="#">Food For Days</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Hub</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="../searchFoodPageFolder/searchFoodPage.html">Search Food Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../searchRecipePageFolder/searchRecipePage.html">Search Food Recipes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../favoriteFoodsPageFolder/favoriteFoodsPage.html">Favorite Foods</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../createFoodPlanFolder/createFoodPlanPage.html">Meal Plans</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
         <div class="d-flex flex-column align-items-center">
             <input type="text" class="form-control mt-4 col-6 text-center searchInput" placeholder="Enter a Food">
