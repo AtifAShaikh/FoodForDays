@@ -1,3 +1,4 @@
+
 var favoriteFoods = JSON.parse(localStorage.getItem('favoriteFoods'));
 if(favoriteFoods === null){
     localStorage.setItem('favoriteFoods', '[]');
@@ -14,6 +15,7 @@ function populateCards(recipes){
         element.recipe.ingredientLines.forEach(element => {
             ingredientList += element + ', ';
         });
+        // newCard.find('cardRecipieLink').attr('src', element.recipe.url);
         newCard.find('.cardIngredients').text(ingredientList);
         newCard.find('.cardCalories').text(Math.round(element.recipe.totalNutrients.ENERC_KCAL.quantity/element.recipe.yield) + ' cal');
         newCard.find('.cardCarbs').text("Carbs: " + Math.round(element.recipe.totalNutrients.CHOCDF.quantity/element.recipe.yield) + ' g');
@@ -23,6 +25,7 @@ function populateCards(recipes){
         newCard.find('.addToFavoritesButton').on('click', addRecipeToFavorites)
         newCard.find('a').attr('href', element.recipe.shareAs);
 
+        newCard.find('addToFavoritesButton').on('click', addToFavorites)
         $('.cardContainer').append(newCard);
     });
     
@@ -40,6 +43,7 @@ $('#searchBtn').on('click', function(event){
         populateCards(data.hits);
     })
 });
+
 
 function addRecipeToFavorites(event){
     var myButton = $(event.target);
