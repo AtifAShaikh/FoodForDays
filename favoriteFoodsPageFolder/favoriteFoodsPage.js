@@ -1,6 +1,23 @@
 var favoriteFoods = JSON.parse(localStorage.getItem('favoriteFoods'));
     console.log(favoriteFoods)
 
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Carbs', 'Fats', 'Proteins'],
+        datasets: [{
+            label: '# of Votes',
+            data: [1, 1, 1],
+            backgroundColor: [
+                'rgba(54, 162, 235)',
+                'rgba(255, 206, 86)',
+                'rgba(255, 99, 132)'
+            ]
+        }]
+    }
+});
+
     
 for(var i = 0; i<favoriteFoods.length; i++){
     var newCard = $('#templateCard').clone();
@@ -18,6 +35,9 @@ $('.cardHolder').on("click", ".card", function(){
    console.log(foodIndex);
    console.log(favoriteFoods[foodIndex]);
    $("#foodName").text(favoriteFoods[foodIndex].name);
+   $('#foodImage').prepend('<img id="theImg" src="favoriteFoods[foodIndex].image" />')
+
+
    $("#foodCalories").text(favoriteFoods[foodIndex].calories);
    $("#foodFats").text(favoriteFoods[foodIndex].fats);
    $("#foodCarbs").text(favoriteFoods[foodIndex].carbs);
@@ -25,9 +45,25 @@ $('.cardHolder').on("click", ".card", function(){
    $("#foodRecipe").text(favoriteFoods[foodIndex].recipe);
    $("#foodIngredients").text(favoriteFoods[foodIndex].ingredients);
    $('.removeButton').attr('listIndex', foodIndex);
+   myChart.destroy();
+   myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Carbs', 'Fats', 'Proteins'],
+        datasets: [{
+            label: '# of Votes',
+            data: [favoriteFoods[foodIndex].carbs, favoriteFoods[foodIndex].fats, favoriteFoods[foodIndex].proteins],
+            backgroundColor: [
+                'rgba(54, 162, 235)',
+                'rgba(255, 206, 86)',
+                'rgba(255, 99, 132)'
+            ]
+        }]
+    }
+});
 })
 
-$('.foodInfo').on("click", ".btn", function(){
+$('.removeButton').on("click", function(){
     var indexToRemove = $(this).attr('listIndex');
     console.log(indexToRemove);
     favoriteFoods.splice(indexToRemove, 1);
@@ -45,12 +81,16 @@ $('.foodInfo').on("click", ".btn", function(){
         $('.cardHolder').append(newCard);
     }
 
+    $("#foodName").text('');
+    $("#foodCalories").text('');
+    $("#foodFats").text('');
+    $("#foodCarbs").text('');
+    $("#foodProteins").text('');
+    $("#foodRecipe").text('');
+    $("#foodIngredients").text('');
     
+
 });
-   
-    
-
-
 
 
     
