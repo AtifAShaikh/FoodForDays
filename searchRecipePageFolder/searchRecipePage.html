@@ -38,16 +38,17 @@
             <button type="button" class="btn btn-primary mt-3" id="searchBtn">Search</button>
         </div>
         
-        <div class="card col-6 " id="cardTemplate">
+        <div class="card col-6 mb-3" id="cardTemplate">
             <div class="card-body">
                   <h1 class="cardTitle">Title</h1>
                   <img width="300">
+                  <!-- <link href class="cardRecipeLink">Recipe Link</link> -->
                   <p class="cardIngredients">Ingredients</p>
                   <h3 class="cardCalories">Calories</h3>
                   <h4 class="cardCarbs">Carbs</h4>
                   <h4 class="cardFats">Fats</h4>
                   <h4 class="cardProteins">Proteins</h4>
-                  <button type="button" class="btn btn-outline-success addToFavoritesButton">Add to Favorites</button>
+                  <button type="button" onclick="addToFavorites(event)" class="btn btn-outline-success addToFavoritesButton">Add to Favorites</button>
             </div>
           </div>
 
