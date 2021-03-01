@@ -1,4 +1,8 @@
-
+var favoriteFoods = JSON.parse(localStorage.getItem('favoriteFoods'));
+if(favoriteFoods === null){
+    localStorage.setItem('favoriteFoods', '[]');
+    var favoriteFoods = JSON.parse(localStorage.getItem('favoriteFoods'));
+}
 
 function populateCards(recipes){
     $('.cardContainer').empty();
@@ -16,6 +20,8 @@ function populateCards(recipes){
         newCard.find('.cardFats').text("Fats: " + Math.round(element.recipe.totalNutrients.FAT.quantity/element.recipe.yield) + ' g');
         newCard.find('.cardProteins').text("Proteins: " + Math.round(element.recipe.totalNutrients.PROCNT.quantity/element.recipe.yield) + ' g');
         newCard.find('img').attr('src', element.recipe.image);
+        newCard.find('.addToFavoritesButton').on('click', addRecipeToFavorites)
+        newCard.find('a').attr('href', element.recipe.shareAs);
 
         $('.cardContainer').append(newCard);
     });
@@ -35,3 +41,22 @@ $('#searchBtn').on('click', function(event){
     })
 });
 
+function addRecipeToFavorites(event){
+    var myButton = $(event.target);
+    var ObjectToAppend = {
+        name: myButton.siblings('.cardTitle').text(),
+        brand: myButton.siblings('.cardBrand').text(),
+        calories: myButton.siblings('.cardCalories').text().split(' ')[0],
+        carbs: myButton.siblings('.cardCarbs').text().split(' ')[1],
+        fats: myButton.siblings('.cardFats').text().split(' ')[1],
+        proteins: myButton.siblings('.cardProteins').text().split(' ')[1],
+        ingredients: myButton.siblings('.cardIngredients').text(),
+        recipe: myButton.siblings('.recipeLink').attr('href'),
+        img: myButton.siblings('img').attr('src')
+    }
+    console.log(ObjectToAppend);
+    favoriteFoods.push(ObjectToAppend);
+    localStorage.setItem('favoriteFoods', JSON.stringify(favoriteFoods));
+    favoriteFoods = JSON.parse(localStorage.getItem('favoriteFoods'));
+    myButton.hide();
+}
