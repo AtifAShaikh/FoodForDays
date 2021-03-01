@@ -6,8 +6,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap" rel="stylesheet">
         <link href="./searchRecipiesStyle.css" rel="stylesheet">
     </head>
-    <body>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
+    <body style="background-color: #dddddd;">
+    <nav class="navbar navbar-expand-lg navbar-light px-4" style="background-color:#6ea596;">
         <a class="navbar-brand" href="#">Food For Days</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,7 @@
             <button type="button" class="btn btn-primary mt-3" id="searchBtn">Search</button>
         </div>
         
-        <div class="card col-6 mb-3" id="cardTemplate">
+        <div class="card col-6 mb-3" id="cardTemplate" style="background-color: #b0c2bd;" >
             <div class="card-body">
                   <h1 class="cardTitle">Title</h1>
                   <img width="300">
@@ -47,17 +47,15 @@
                   <h4 class="cardCarbs">Carbs</h4>
                   <h4 class="cardFats">Fats</h4>
                   <h4 class="cardProteins">Proteins</h4>
-                  <a href='' class="mr-2 recipeLink">Click here for the recipe</a>
-                  <button type="button" class="btn btn-outline-success addToFavoritesButton">Add to Favorites</button>
+                  <a href='' class="mr-2 recipeLink" style="font-size:x-large;">Click here for the recipe</a>
+                  <button type="button" class="btn btn-success addToFavoritesButton">Add to Favorites</button>
 
             </div>
           </div>
 
           <div class="cardContainer d-flex flex-column align-items-center mt-4" id="cardContainer"></div>
 
-          <div class="footer">
-            <p>sampleText</p>
-          </div>
+
          
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
