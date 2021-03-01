@@ -1,7 +1,8 @@
-var favoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
-if(favoriteRecipes === null){
-    localStorage.setItem('favoriteRecipes', '[]');
-    var localStorage = JSON.parse(localStorage.getItem('favoriteRecipes'));
+
+var favoriteFoods = JSON.parse(localStorage.getItem('favoriteFoods'));
+if(favoriteFoods === null){
+    localStorage.setItem('favoriteFoods', '[]');
+    var favoriteFoods = JSON.parse(localStorage.getItem('favoriteFoods'));
 }
 
 function populateCards(recipes){
@@ -21,6 +22,8 @@ function populateCards(recipes){
         newCard.find('.cardFats').text("Fats: " + Math.round(element.recipe.totalNutrients.FAT.quantity/element.recipe.yield) + ' g');
         newCard.find('.cardProteins').text("Proteins: " + Math.round(element.recipe.totalNutrients.PROCNT.quantity/element.recipe.yield) + ' g');
         newCard.find('img').attr('src', element.recipe.image);
+        newCard.find('.addToFavoritesButton').on('click', addRecipeToFavorites)
+        newCard.find('a').attr('href', element.recipe.shareAs);
 
         newCard.find('addToFavoritesButton').on('click', addToFavorites)
         $('.cardContainer').append(newCard);
@@ -42,20 +45,22 @@ $('#searchBtn').on('click', function(event){
 });
 
 
-
-function addToFavorites(event){
-    var favBtn = $(event.target);
-    var object = {
-        name: favBtn.siblings('.cardTitle').text(),
-        calories: favBtn.siblings('.cardCalories').text(),
-
+function addRecipeToFavorites(event){
+    var myButton = $(event.target);
+    var ObjectToAppend = {
+        name: myButton.siblings('.cardTitle').text(),
+        brand: myButton.siblings('.cardBrand').text(),
+        calories: myButton.siblings('.cardCalories').text().split(' ')[0],
+        carbs: myButton.siblings('.cardCarbs').text().split(' ')[1],
+        fats: myButton.siblings('.cardFats').text().split(' ')[1],
+        proteins: myButton.siblings('.cardProteins').text().split(' ')[1],
+        ingredients: myButton.siblings('.cardIngredients').text(),
+        recipe: myButton.siblings('.recipeLink').attr('href'),
+        img: myButton.siblings('img').attr('src')
     }
-    favoriteRecipes.push(object);
-    localStorage.setItem('favoriteRecipes', JSON.stringify(favoriteRecipes));
-    favoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
-    favBtn.hide();
-    console.log(favoriteRecipes);
+    console.log(ObjectToAppend);
+    favoriteFoods.push(ObjectToAppend);
+    localStorage.setItem('favoriteFoods', JSON.stringify(favoriteFoods));
+    favoriteFoods = JSON.parse(localStorage.getItem('favoriteFoods'));
+    myButton.hide();
 }
-
-
-

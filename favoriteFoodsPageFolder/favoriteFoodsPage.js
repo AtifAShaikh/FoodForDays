@@ -39,14 +39,16 @@ $('.cardHolder').on("click", ".card", function(){
    $("#foodFats").text(favoriteFoods[foodIndex].fats);
    $("#foodCarbs").text(favoriteFoods[foodIndex].carbs);
    $("#foodProteins").text(favoriteFoods[foodIndex].proteins);
-   $("#foodRecipe").text(favoriteFoods[foodIndex].recipe);
+//    $("#foodRecipe").text(favoriteFoods[foodIndex].recipe);
    $("#foodIngredients").text(favoriteFoods[foodIndex].ingredients);
    $('.removeButton').attr('listIndex', foodIndex);
-   if(favoriteFoods[foodIndex].recipe === ''){
+   $('#foodRecipe').attr('href', favoriteFoods[foodIndex].recipe)
+   if(favoriteFoods[foodIndex].img === ''){
        $('.foodImage').hide();
    } else {
-       $('foodImage').show();
-       $('foodImage').attr('src', favoriteFoods[foodIndex].img)
+       console.log(favoriteFoods[foodIndex].img);
+       $('.foodImage').show();
+       $('.foodImage').attr('src', favoriteFoods[foodIndex].img)
    }
    myChart.destroy();
    myChart = new Chart(ctx, {
