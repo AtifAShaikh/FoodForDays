@@ -1,3 +1,4 @@
+
 .slideshow-container {
     max-width: 1000px;
     position: relative;
@@ -28,3 +29,14 @@
   
   
   
+
+.footer {
+    position: fixed !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    background-color: #548c7d ;
+    color: white !important;
+    text-align: center !important;
+  }
+

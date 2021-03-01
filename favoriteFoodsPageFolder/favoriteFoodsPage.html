@@ -10,9 +10,12 @@
     <link href="favoriteFoodsStyle.css" rel="stylesheet">
     <title>Document</title>
 </head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
-    <a class="navbar-brand" href="#">Food For Days</a>
+<body style="background-color: #dddddd;">
+  <nav class="navbar navbar-expand-lg navbar-light px-4" style="background-color:#6ea596;">
+    <a class="navbar-brand" href="#">
+      <img src="../foodForDaysLogo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      Food For Days
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -60,7 +63,7 @@
                 <h3>Carbs: <span id="foodCarbs"></span> (g)</h3>
                 <h3>Proteins: <span id="foodProteins"></span> (g)</h3>
                 <h5>Ingredients: <span id="foodIngredients"></span></h5>
-                <a id="foodRecipe" href="">Click here for the recipe</a>
+                <a id="foodRecipe" href="" style="font-size:x-large;">Click here for the recipe</a>
               </div>
               <div class="col-3 d-flex flex-column align-items-start">
                 <canvas id="myChart"></canvas>
@@ -75,7 +78,13 @@
           
    
 
-    
+            <footer class="footer bg-light text-center text-lg-start">
+              <!-- Copyright -->
+              <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                Made by Jennifer Verkeecken, Erick Interniano, and Atif Shaikh
+              </div>
+              <!-- Copyright -->
+            </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
