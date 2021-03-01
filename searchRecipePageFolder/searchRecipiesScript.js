@@ -22,10 +22,9 @@ function populateCards(recipes){
         newCard.find('.cardFats').text("Fats: " + Math.round(element.recipe.totalNutrients.FAT.quantity/element.recipe.yield) + ' g');
         newCard.find('.cardProteins').text("Proteins: " + Math.round(element.recipe.totalNutrients.PROCNT.quantity/element.recipe.yield) + ' g');
         newCard.find('img').attr('src', element.recipe.image);
-        newCard.find('.addToFavoritesButton').on('click', addRecipeToFavorites)
         newCard.find('a').attr('href', element.recipe.shareAs);
 
-        newCard.find('addToFavoritesButton').on('click', addToFavorites)
+        newCard.find('.addToFavoritesButton').on('click', addRecipeToFavorites)
         $('.cardContainer').append(newCard);
     });
     
