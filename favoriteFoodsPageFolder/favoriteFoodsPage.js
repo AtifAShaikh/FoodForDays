@@ -42,6 +42,12 @@ $('.cardHolder').on("click", ".card", function(){
    $("#foodRecipe").text(favoriteFoods[foodIndex].recipe);
    $("#foodIngredients").text(favoriteFoods[foodIndex].ingredients);
    $('.removeButton').attr('listIndex', foodIndex);
+   if(favoriteFoods[foodIndex].recipe === ''){
+       $('.foodImage').hide();
+   } else {
+       $('foodImage').show();
+       $('foodImage').attr('src', favoriteFoods[foodIndex].img)
+   }
    myChart.destroy();
    myChart = new Chart(ctx, {
     type: 'doughnut',
