@@ -66,6 +66,7 @@ $('.cardHolder').on("click", ".card", function(){
         }]
     }
 });
+
 })
 
 $('.removeButton').on("click", function(){
@@ -93,7 +94,6 @@ $('.removeButton').on("click", function(){
     $("#foodProteins").text('');
     $("#foodRecipe").text('');
     $("#foodIngredients").text('');
-    
 
 });
 

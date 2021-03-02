@@ -42,6 +42,7 @@ function populateCards(foodsToDisplay){
         newCard.find('.addToFavoritesButton').on('click', addToFavorites)
         $('#cardContainer').append(newCard);
     });
+    $('#footer').removeAttr('id');
 }
 
 $('#searchSubmitButton').on('click', function(event){

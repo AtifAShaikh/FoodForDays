@@ -4,9 +4,10 @@
 
 .body{
     background-color: #bdc4c2;
+    min-height: 100%;
 }
 
-.footer {
+#footer {
     position: fixed;
     left: 0;
     bottom: 0;
@@ -14,4 +15,8 @@
     background-color: #548c7d;
     color: white;
     text-align: center;
+  }
+
+  .footer{
+    color: white;
   }
