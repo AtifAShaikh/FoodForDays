@@ -6,12 +6,20 @@
     cursor: pointer;
 }
 
-.footer {
-    position: fixed;
+#footer {
+    /* position: fixed;
     left: 0;
-    bottom: 0;
+    bottom: 0; */
     width: 100%;
     background-color: #548c7d;
     color: white;
     text-align: center;
   }
+
+.footer{
+    color: white;
+}
+
+.mainRow{
+    margin-bottom: 20%;
+}

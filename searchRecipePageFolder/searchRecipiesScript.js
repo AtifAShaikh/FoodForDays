@@ -27,7 +27,7 @@ function populateCards(recipes){
         newCard.find('.addToFavoritesButton').on('click', addRecipeToFavorites)
         $('.cardContainer').append(newCard);
     });
-    
+    $('#footer').removeAttr('id');
 }
 
 
